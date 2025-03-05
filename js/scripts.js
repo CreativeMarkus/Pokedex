@@ -1,4 +1,3 @@
-let pokemonList = [];
 let pokemonList = [
     {
       name: "Bulbasaur",
