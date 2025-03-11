@@ -26,10 +26,12 @@ let pokemonList = [
   },
 ];
 
-for (let i = 0; i < pokemonList.length; i++) { 
-  if (pokemonList[i].types.length > 7 && pokemonList[i].types.length < 10) { 
-    console.log(pokemonList[i].name + " Wow, that’s big! " + pokemonList[i].types.length);
-  } else if (pokemonList[i].types.length <= 7) {  
-    console.log(pokemonList[i].name + " is average " + pokemonList[i].types.length);
+for (let i = 0; i < pokemonList.length; i++) {
+  let output = pokemonList[i].name + " (height: " + pokemonList[i].height + ")";
+
+  if (pokemonList[i].height > 6.5) {
+    output += " - Wow, that’s big!";
   }
+
+  document.write(output + "<br>");
 }
