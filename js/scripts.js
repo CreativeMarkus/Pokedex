@@ -1,4 +1,4 @@
-(function () {
+let pokemonRepository = (function () {
 let pokemonList = [
   { 
     name: "Bulbasaur",
@@ -26,12 +26,23 @@ let pokemonList = [
     types: ["Psychic"]
   },
 ];
-pokemonList.forEach(pokemon => {
-  let output = `${pokemon.name} (height: ${pokemon.height})`; 
-  if (pokemon.height > 6.5) {
-    output += " - Wow, that's big!";
+function getAll() {
+  return pokemonList; 
+}
+function add(pokemon) {
+  if (
+    typeof pokemon === "object" &&
+    "name" in pokemon &&
+    "height" in pokemon &&
+    "types" in pokemon
+  ) {
+    pokemonList.push(pokemon);
+  } else {
+    console.error("Invalid Pokémon data");
   }
-
-  document.write(output + "<br>"); 
-});
-})();
+}
+return {
+  getAll: getAll,
+  add: add
+};
+})(); 
