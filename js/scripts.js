@@ -1,3 +1,4 @@
+(function () {
 let pokemonList = [
   { 
     name: "Bulbasaur",
@@ -33,3 +34,4 @@ pokemonList.forEach(pokemon => {
 
   document.write(output + "<br>"); 
 });
+})();
