@@ -1,5 +1,5 @@
 let pokemonList = [
-  {
+  { 
     name: "Bulbasaur",
     height: 7,
     types: ["grass", "poison"]
@@ -25,13 +25,11 @@ let pokemonList = [
     types: ["Psychic"]
   },
 ];
-
-for (let i = 0; i < pokemonList.length; i++) {
-  let output = pokemonList[i].name + " (height: " + pokemonList[i].height + ")";
-
-  if (pokemonList[i].height > 6.5) {
-    output += " - Wow, that’s big!";
+pokemonList.forEach(pokemon => {
+  let output = `${pokemon.name} (height: ${pokemon.height})`; 
+  if (pokemon.height > 6.5) {
+    output += " - Wow, that's big!";
   }
 
-  document.write(output + "<br>");
-}
+  document.write(output + "<br>"); 
+});
