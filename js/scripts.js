@@ -1,4 +1,5 @@
 let pokemonRepository = (function () {
+  // List of Pokémon
   let pokemonList = [
     { 
       name: "Bulbasaur",
@@ -27,10 +28,12 @@ let pokemonRepository = (function () {
     },
   ];
 
+  // Get all Pokémon from the list
   function getAll() {
     return pokemonList; 
   }
 
+  // Add new Pokémon to the list
   function add(pokemon) {
     if (
       typeof pokemon === "object" &&
@@ -45,19 +48,47 @@ let pokemonRepository = (function () {
     }
   }
 
+  // Function to add list item to the DOM
   function addListItem(pokemon) {
+    // Select the unordered list where the items will go
     let pokemonListElement = document.querySelector('.pokemon-list');
+    
+    // Create a list item <li>
     let listItem = document.createElement('li');
+
+    // Create a button element
     let button = document.createElement('button');
-    button.innerText = pokemon.name; 
+    button.innerText = pokemon.name; // Use the pokemon parameter here
+    
+    // Add a class to the button
     button.classList.add('pokemon-button');
+    
+    // Append the button to the list item
     listItem.appendChild(button);
+
+    // Append the list item to the unordered list
     pokemonListElement.appendChild(listItem);
+
+    // Add the event listener to the button (click)
+    addEventListenerToButton(button, pokemon);
   }
 
+  // Function to add an event listener to the button
+  function addEventListenerToButton(button, pokemon) {
+    button.addEventListener('click', function () {
+      showDetails(pokemon); // Call showDetails when the button is clicked
+    });
+  }
+
+  // Function to display Pokémon details in the console
+  function showDetails(pokemon) {
+    console.log(pokemon); // Log the Pokémon object to the console
+  }
+
+  // Adding Pokémon list items to the page
   function displayPokemons() {
     getAll().forEach(function (pokemon) {
-      addListItem(pokemon);
+      addListItem(pokemon); // Call addListItem for each Pokémon
     });
   }
 
@@ -65,9 +96,11 @@ let pokemonRepository = (function () {
     getAll: getAll,
     add: add,
     displayPokemons: displayPokemons,
-    addListItem: addListItem 
+    addListItem: addListItem, // Expose addListItem outside the IIFE
+    showDetails: showDetails // Expose showDetails outside the IIFE
   };
 
 })(); 
 
+// Calling the function to display the Pokémon list
 pokemonRepository.displayPokemons();
