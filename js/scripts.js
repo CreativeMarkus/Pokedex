@@ -45,30 +45,42 @@ let pokemonRepository = (function () {
     }
   }
 
+  // Function to add list item to the DOM
+  function addListItem(pokemon) {
+    // Select the unordered list
+    let pokemonListElement = document.querySelector('.pokemon-list');
+
+    // Create an li element
+    let listItem = document.createElement('li');
+
+    // Create a button element
+    let button = document.createElement('button');
+    button.innerText = pokemon.name; // Set button text to the Pokémon's name
+
+    // Add a class to the button
+    button.classList.add('pokemon-button');
+
+    // Append the button to the list item
+    listItem.appendChild(button);
+
+    // Append the list item to the unordered list
+    pokemonListElement.appendChild(listItem);
+  }
+
+  // Adding Pokémon list items to the page
+  function displayPokemons() {
+    getAll().forEach(function (pokemon) {
+      addListItem(pokemon); // Call addListItem for each Pokémon
+    });
+  }
+
   return {
     getAll: getAll,
-    add: add
+    add: add,
+    displayPokemons: displayPokemons
   };
 
 })(); 
 
-pokemonRepository.getAll().forEach(function (pokemon) {
-  // Select the unordered list
-  let pokemonListElement = document.querySelector('.pokemon-list');
-
-  // Create an li element
-  let listItem = document.createElement('li');
-
-  // Create a button element
-  let button = document.createElement('button');
-  button.innerText = pokemon.name; // Set button text to the Pokémon's name
-  
-  // Add a class to the button
-  button.classList.add('pokemon-button');
-
-  // Append the button to the list item
-  listItem.appendChild(button);
-
-  // Append the list item to the unordered list
-  pokemonListElement.appendChild(listItem);
-});
+// Calling the function to display the Pokémon list
+pokemonRepository.displayPokemons();

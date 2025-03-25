@@ -1,0 +1,20 @@
+.pokemon-list {
+    list-style-type: none;
+    padding-left: 0;
+  }
+  
+  .pokemon-button {
+    background-color: #ffcc00;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .pokemon-button:hover {
+    background-color: #ff9900; 
+  }
