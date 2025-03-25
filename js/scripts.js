@@ -53,15 +53,22 @@ let pokemonRepository = (function () {
 })(); 
 
 pokemonRepository.getAll().forEach(function (pokemon) {
-  // Assign the ul element inside the forEach loop
+  // Select the unordered list
   let pokemonListElement = document.querySelector('.pokemon-list');
 
+  // Create an li element
   let listItem = document.createElement('li');
-  listItem.textContent = `${pokemon.name} (height: ${pokemon.height})`;
 
-  if (pokemon.height > 6.5) {
-    listItem.textContent += " - Wow, that's big!";
-  }
+  // Create a button element
+  let button = document.createElement('button');
+  button.innerText = pokemon.name; // Set button text to the Pokémon's name
+  
+  // Add a class to the button
+  button.classList.add('pokemon-button');
 
+  // Append the button to the list item
+  listItem.appendChild(button);
+
+  // Append the list item to the unordered list
   pokemonListElement.appendChild(listItem);
 });
