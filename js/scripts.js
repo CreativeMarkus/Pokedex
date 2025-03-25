@@ -52,10 +52,10 @@ let pokemonRepository = (function () {
 
 })(); 
 
-// Select the unordered list
-let pokemonListElement = document.querySelector('.pokemon-list');
-
 pokemonRepository.getAll().forEach(function (pokemon) {
+  // Assign the ul element inside the forEach loop
+  let pokemonListElement = document.querySelector('.pokemon-list');
+
   let listItem = document.createElement('li');
   listItem.textContent = `${pokemon.name} (height: ${pokemon.height})`;
 
