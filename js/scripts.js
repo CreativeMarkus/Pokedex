@@ -46,7 +46,7 @@ let pokemonRepository = (function () {
   }
 
   // Function to add list item to the DOM
-  function addListItem(pokemon) {  // The parameter is named 'pokemon'
+  function addListItem(pokemon) {
     // Select the unordered list
     let pokemonListElement = document.querySelector('.pokemon-list');
 
