@@ -1,5 +1,18 @@
+fetch('https://pokeapi.co/api/v2/pokemon/?limit=150')
+  .then(response => response.json())
+  .then(data => {
+    data.results.forEach(pokemon => {
+      pokemonRepository.add({
+        name: pokemon.name,
+        height: 0,
+        types: [] 
+      });
+    });
+    pokemonRepository.displayPokemons(); 
+  })
+  .catch(error => console.error('Error fetching Pokémon:', error));
 let pokemonRepository = (function () {
-  let pokemonList = [
+  let pokemonList = [ 
     { 
       name: "Bulbasaur",
       height: 7,
